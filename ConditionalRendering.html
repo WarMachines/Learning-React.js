@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>React Project</title>
+        <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            #heading {
+                color: red;
+            }
+
+            .heading2 {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>        
+        <script type="text/babel">
+            
+            const lakeList = ["Lake 1", "Lake 2", "Lake 3"];
+            const SkiResortList = ["SkiResort 1", "SkiResort 2", "SkiResort 3"];
+
+            const Lake = ({inputList}) =>{
+                return (
+                    <h1>
+                        <ul>
+                            {inputList.map((lake, i) => (
+                                <li key={i}>{lake}</li>
+                            ))
+                            }
+                        </ul>
+                    </h1>
+                )
+            }
+
+            const SkiResort = ({inputList}) => {
+                console.log(inputList)
+                return(
+                    <h1>
+                        <ul>
+                            {inputList.map((skiResort, i) => (
+                                <li key={i}>{skiResort}</li>
+                            ))
+                            }
+                        </ul>
+                    </h1>
+                );
+            }
+
+            const App = ({isSummer}) => {
+                return (
+                    <div>
+                        {
+                            isSummer 
+                                ? <Lake inputList={lakeList}/>
+                                : <SkiResort inputList={SkiResortList}/>
+
+                        }
+                    </div>
+                )
+            }
+
+            ReactDOM.render(
+                <App isSummer={true}/>,
+                document.querySelector('#root')
+            );
+        </script>
+    </body>
+</html>

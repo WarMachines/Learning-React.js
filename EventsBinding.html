@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>React Project</title>
+        <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            #heading {
+                color: red;
+            }
+
+            .heading2 {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>        
+        <script type="text/babel">
+            
+            const Lake = ({name}) =>{
+                return (
+                    <h1>{name}</h1>
+                )
+            }
+
+            let functionComponent = 'from functional component';
+            const App = () => {
+                return(
+                    <div>
+                        <Lake name='Lake 1'/>,
+                        <Lake name='Lake 2'/>,
+                        <Lake name='Lake 3'/>
+                        
+                    </div>
+                )
+            }
+
+
+            class App2 extends React.Component {
+
+                state = {
+                    isUserLoggedIn: false
+                }
+
+                logIn = () => { this.setState({isUserLoggedIn: true}) };
+                logOut = () => { this.setState({ isUserLoggedIn: false})};
+
+                render() {
+                    return(
+                        <div>
+                            <button onClick={this.logIn}>Log In</button>
+                            <button onClick={this.logOut}> Log Out</button>
+                            <div>The user is {this.state.isUserLoggedIn ? "logged in" : "not logged in"}</div>
+                            <Lake name='Lake 1'/>,
+                            <Lake name='Lake 2'/>,
+                            <Lake name='Lake 3'/>
+                        </div>
+                    );
+                };
+            }
+
+            ReactDOM.render(
+            <App2/>,
+            document.querySelector('#root')
+            );
+        </script>
+    </body>
+</html>

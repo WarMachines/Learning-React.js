@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>React Project</title>
+        <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            #heading {
+                color: red;
+            }
+
+            .heading2 {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>        
+        <script type="text/babel">
+            let city = 'Madrid'
+            let secondCity = 'Spain'
+            let Hello = (props) => {
+                console.log(props);
+                return (
+                    <div>
+                        Another Country named {props.country}
+                    </div>
+                )
+            };
+
+            ReactDOM.render(
+                <div>
+                    <h1 id="heading">Hello {city}</h1>
+                    <h1 className="heading2">Hello {secondCity}</h1>
+                    <Hello country="India"/>
+                </div>,
+                document.querySelector('#root')
+            );
+        </script>
+    </body>
+</html>
